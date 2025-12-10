@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: light --default;
+  themes: light --default, dark --prefersdark;
 }
 
 @plugin "daisyui/theme" {
@@ -10,6 +10,9 @@
   --color-primary: #caeb66;
   --color-secondary: #03373d;
 }
+
+/* Dark variant */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 li a.active {
   @apply underline font-bold text-secondary;

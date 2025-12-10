@@ -9,7 +9,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../../Firbase/Firebase.init";
+import { auth } from "../firebase/Firebase.init";
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {

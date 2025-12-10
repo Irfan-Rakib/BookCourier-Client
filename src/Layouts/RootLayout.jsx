@@ -14,7 +14,7 @@ const RootLayout = () => {
         {" "}
         <Outlet />
       </div>
-      <div className="bg-[#0B0B0B]">
+      <div className="">
         <Footer />
       </div>
     </div>

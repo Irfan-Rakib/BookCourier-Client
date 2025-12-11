@@ -31,7 +31,7 @@ const BannerSlider = () => {
   ];
 
   return (
-    <section className="w-full">
+    <section className="w-full mt-8">
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}

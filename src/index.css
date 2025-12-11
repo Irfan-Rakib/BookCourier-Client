@@ -1,19 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Global font */
+* {
+  font-family: "Poppins", sans-serif;
+}
+
 @import "tailwindcss";
 
+/* DaisyUI with custom themes */
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
 }
 
+/* Custom Light Theme */
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #caeb66;
-  --color-secondary: #03373d;
+
+  --color-primary: #233346;
+  --color-secondary: #a88647;
+  --color-accent: #6d7e61;
+
+  --color-neutral: #d1d5db;
+  --color-base-100: #f9fafb; /* Background Light */
+}
+
+/* Custom Dark Theme */
+@plugin "daisyui/theme" {
+  name: "dark";
+
+  --color-primary: #233346;
+  --color-secondary: #a88647;
+  --color-accent: #6d7e61;
+
+  --color-neutral: #d1d5db;
+  --color-base-100: #1c1c1c; /* Dark Mode Background */
 }
 
 /* Dark variant */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+/* Active Nav Link Style */
 li a.active {
-  @apply underline font-bold text-secondary;
+  @apply underline font-bold text-primary;
 }

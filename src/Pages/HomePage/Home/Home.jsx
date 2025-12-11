@@ -1,7 +1,12 @@
 import React from "react";
+import BannerSlider from "../BannerSlider/BannerSlider";
 
 const Home = () => {
-  return <div>This is home</div>;
+  return (
+    <div>
+      <BannerSlider />
+    </div>
+  );
 };
 
 export default Home;

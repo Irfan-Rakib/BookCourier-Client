@@ -42,5 +42,5 @@
 
 /* Active Nav Link Style */
 li a.active {
-  @apply underline font-bold text-primary;
+  @apply underline font-bold text-secondary;
 }

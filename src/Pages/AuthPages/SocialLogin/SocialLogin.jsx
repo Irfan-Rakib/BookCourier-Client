@@ -19,7 +19,7 @@ const SocialLogin = () => {
   };
   return (
     <div className="text-center">
-      <p>OR</p>
+      <p className="py-2">OR,</p>
       {/* Google */}
       <button
         onClick={handleGoogleSignIn}

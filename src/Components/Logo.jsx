@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/Logo.png";
 const Logo = () => {
   return (
-    <div className="w-40">
+    <div className=" w-40 md:w-50 dark:bg-gray-300 rounded-xl px-2 py-1">
       <img src={logo} alt="Logo" />
     </div>
   );

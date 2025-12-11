@@ -99,7 +99,7 @@ const Navbar = () => {
       </div>
 
       {/* RIGHT */}
-      <div className="navbar-end flex items-center gap-3">
+      <div className="navbar-end flex items-center gap-2">
         {/* Theme Toggle */}
         <ThemeToggle />
 
@@ -145,8 +145,8 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to="/login" className="btn btn-primary hover:btn-secondary">
-            <BiLogIn className="text-lg gap-2" />
-            Login / Register
+            <BiLogIn className="text-lg" />
+            Login
           </Link>
         )}
       </div>

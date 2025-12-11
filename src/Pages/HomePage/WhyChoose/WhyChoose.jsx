@@ -73,7 +73,7 @@ const WhyChoose = () => {
         {features.map((feature, idx) => (
           <motion.div
             key={idx}
-            className="bg-white rounded-2xl shadow-lg p-8 text-center hover:scale-105 transition-transform duration-300"
+            className="bg-white dark:bg-black dark:border rounded-2xl shadow-lg p-8 text-center hover:scale-105 transition-transform duration-300"
             variants={cardVariants}
           >
             {feature.icon}

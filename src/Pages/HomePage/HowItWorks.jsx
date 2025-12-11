@@ -36,7 +36,7 @@ const HowItWorks = () => {
   };
 
   return (
-    <section className="py-16 px-6 bg-gradient-to-r from-white to-indigo-50">
+    <section className="py-16 px-6 ">
       <h2 className="text-2xl md:text-4xl font-bold text-center text-secondary mb-12">
         How It Works
       </h2>
@@ -50,7 +50,7 @@ const HowItWorks = () => {
         {steps.map((step, idx) => (
           <motion.div
             key={idx}
-            className="bg-white rounded-2xl shadow-lg p-8 text-center hover:scale-105 transition-transform duration-300"
+            className="bg-white dark:bg-black dark:border rounded-2xl shadow-lg p-8 text-center hover:scale-105 transition-transform duration-300"
             variants={cardVariants}
           >
             {step.icon}

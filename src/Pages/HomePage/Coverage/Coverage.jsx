@@ -185,7 +185,7 @@ const Coverage = () => {
 
       <div className="max-w-md mb-8">
         <form onSubmit={handleSearch}>
-          <div className="flex items-center gap-3 bg-white border rounded-xl px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-secondary">
+          <div className="flex items-center gap-3 bg-white border rounded-xl px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-secondary dark:bg-gray-800">
             <input
               name="location"
               type="search"
@@ -200,7 +200,7 @@ const Coverage = () => {
         </form>
       </div>
 
-      <div className="w-full mx-auto  shadow-xl">
+      <div className="w-full mx-auto  shadow-2xl">
         <div className="w-full h-[60vh] md:h-[75vh] lg:h-[80vh] rounded-xl overflow-hidden shadow-lg">
           <MapContainer
             center={position}

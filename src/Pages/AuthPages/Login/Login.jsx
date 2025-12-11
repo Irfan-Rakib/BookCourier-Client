@@ -66,10 +66,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center">
+    <div className="min-h-screen flex items-center  ">
       {/* Left Side Hero */}
       <div className="hidden lg:flex flex-1 items-center justify-center p-10">
-        <div>
+        <div className="">
           <h1 className="text-5xl font-bold text-secondary mb-4">
             Welcome Back
           </h1>
@@ -79,10 +79,9 @@ const Login = () => {
           </p>
         </div>
       </div>
-
       {/* Right Side Login Card */}
-      <div className="flex-1 flex justify-center px-6 py-10">
-        <div className="card max-w-sm w-full bg-base-100 shadow-xl p-6 relative z-10">
+      <div className="flex-1 flex justify-center px-6 py-10 ">
+        <div className="card max-w-sm w-full  shadow-xl p-8 relative z-10 dark:border rounded-2xl ">
           <h2 className="text-2xl font-bold text-center text-secondary mb-1">
             Login
           </h2>
@@ -90,13 +89,13 @@ const Login = () => {
             Enter your credentials to continue
           </p>
 
-          <form onSubmit={handleSubmit(handleLogin)}>
+          <form className="" onSubmit={handleSubmit(handleLogin)}>
             {/* Email */}
             <label className="label">Email</label>
             <input
               type="email"
               {...register("email", { required: true })}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full "
               placeholder="Email"
             />
             {errors.email?.type === "required" && (
@@ -149,7 +148,7 @@ const Login = () => {
             <div className="flex justify-between mt-2">
               <button
                 type="button"
-                className="link text-sm"
+                className="link text-sm text-secondary"
                 onClick={handleForgotPassword}
               >
                 Forgot Password?
@@ -166,7 +165,7 @@ const Login = () => {
             <Link
               state={location.state}
               to="/register"
-              className="text-primary font-semibold"
+              className="text-secondary font-bold link"
             >
               Register
             </Link>

@@ -5,18 +5,12 @@ import { Link, NavLink } from "react-router";
 import ThemeToggle from "../../../Components/ThemeToggle";
 
 // React Icons
-import {
-  FiHome,
-  FiBook,
-  FiMapPin,
-  FiGrid,
-  FiUser,
-  FiLogOut,
-} from "react-icons/fi";
+import { FiHome, FiBook, FiMapPin, FiGrid, FiLogOut } from "react-icons/fi";
 import { BiLogIn } from "react-icons/bi";
 
 const Navbar = () => {
   const { logOut, user } = UseAuth();
+  // console.log(user?.photoURL);
 
   const handleLogout = () => {
     logOut().catch((err) => console.log(err));
@@ -126,9 +120,9 @@ const Navbar = () => {
               className="dropdown-content z-50 menu p-2 shadow bg-base-100 rounded-box w-48"
             >
               <li>
-                <Link to="/profile" className="flex items-center gap-2">
-                  <FiUser className="text-lg" />
-                  Profile
+                <Link to="/dashboard" className="flex items-center gap-2">
+                  <FiGrid className="text-lg" />
+                  Dashboard
                 </Link>
               </li>
 

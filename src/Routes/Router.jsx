@@ -13,6 +13,7 @@ import LibrarianDashboard from "../Pages/Dashboard/Librarian Dashboard/Librarian
 import UserDashboard from "../Pages/Dashboard/User Dashboard/userDashboard";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import BookDetails from "../Pages/Books/BookDetails/BookDetails";
+import PrivateRouter from "./PrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -26,9 +27,14 @@ export const router = createBrowserRouter([
         path: "/books",
         element: <Books />,
       },
+
       {
-        path: "/book-details",
-        element: <BookDetails />,
+        path: "/books/:id",
+        element: (
+          <PrivateRouter>
+            <BookDetails />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/coverage",

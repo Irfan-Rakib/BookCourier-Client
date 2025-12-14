@@ -3,19 +3,19 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 
 const Books = () => {
-  const [books, setBooks] = useState([]);
+  const [allBooks, setAllBooks] = useState([]); // all books fetched once
+  const [books, setBooks] = useState([]); // displayed books
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Fetch books from backend
-  const fetchBooks = async (searchValue = "", sortValue = "") => {
+  // Fetch all books once
+  const fetchBooks = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(
-        `http://localhost:3000/books?search=${searchValue}&sort=${sortValue}`
-      );
+      const res = await axios.get("http://localhost:3000/books");
+      setAllBooks(res.data);
       setBooks(res.data);
     } catch (error) {
       console.error("Failed to load books", error);
@@ -24,21 +24,31 @@ const Books = () => {
     }
   };
 
-  // Debounce search input
   useEffect(() => {
-    const timer = setTimeout(() => {
-      fetchBooks(search, sort);
-    }, 500); // 500ms delay
+    fetchBooks();
+  }, []);
 
-    return () => clearTimeout(timer);
-  }, [search, sort]);
+  // Filter & sort on frontend
+  useEffect(() => {
+    let filtered = allBooks.filter((book) =>
+      book.bookName.toLowerCase().includes(search.toLowerCase())
+    );
+
+    if (sort === "asc") filtered.sort((a, b) => a.price - b.price);
+    if (sort === "desc") filtered.sort((a, b) => b.price - a.price);
+
+    setBooks(filtered);
+  }, [search, sort, allBooks]);
 
   return (
     <div className="container mx-auto px-4 py-10">
-      {/* Header */}
-      <h2 className="text-3xl font-bold text-center mb-8 text-primary">
+      <h2 className=" text-center mb-2  text-2xl md:text-4xl font-bold text-secondary">
         All Books
       </h2>
+      <p className="text-gray-600 mt-3 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-3 text-center">
+        Browse our collection and find the perfect book for your reading
+        journey.
+      </p>
 
       {/* Search & Sort */}
       <div className="flex flex-col md:flex-row gap-4 mb-8 justify-between">

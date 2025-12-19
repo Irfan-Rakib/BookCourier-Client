@@ -4,10 +4,9 @@ import UserDashboard from "./User Dashboard/userDashboard";
 const Dashboard = () => {
   return (
     <div>
-      this is dashboard
-      <div>
-        <UserDashboard />
-      </div>
+      Please select one under <span className=" font-semibold">Dashboard</span>{" "}
+      panel
+      <div></div>
     </div>
   );
 };

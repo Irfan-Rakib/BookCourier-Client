@@ -1,42 +1,49 @@
-import React from "react";
 import { NavLink, Outlet } from "react-router";
-import Footer from "../Pages/SharedPages/Footer/Footer";
 import Navbar from "../Pages/SharedPages/NavBar/NavBar";
-import Profile from "../Pages/Dashboard/UserProfile/Profile";
+import Footer from "../Pages/SharedPages/Footer/Footer";
 
 const DashboardLayout = () => {
+  const navItemClass = ({ isActive }) =>
+    `px-4 py-2 rounded-lg transition ${
+      isActive ? "bg-primary text-white" : "text-gray-600 hover:bg-base-200"
+    }`;
+
   return (
-    <div>
-      <div className="bg-base-100 shadow-sm mb-8">
-        {" "}
+    <div className="min-h-screen flex flex-col">
+      {/* Top Navbar */}
+      <header className="bg-base-100 shadow-sm">
         <Navbar />
+      </header>
+
+      {/* Main Dashboard */}
+      <div className="flex flex-1 container mx-auto px-4 gap-6 py-6">
+        {/* Sidebar */}
+        <aside className="w-64 bg-base-100 border rounded-xl p-4 hidden md:block">
+          <h3 className="text-lg font-semibold mb-4">Dashboard</h3>
+
+          <nav className="flex flex-col gap-2">
+            <NavLink to="/dashboard/user" className={navItemClass}>
+              User Dashboard
+            </NavLink>
+
+            <NavLink to="/dashboard/librarian" className={navItemClass}>
+              Librarian Dashboard
+            </NavLink>
+
+            <NavLink to="/dashboard/admin" className={navItemClass}>
+              Admin Dashboard
+            </NavLink>
+          </nav>
+        </aside>
+
+        {/* Content Area */}
+        <main className="flex-1 bg-base-100 border rounded-xl p-6">
+          <Outlet />
+        </main>
       </div>
 
-      <div className="container mx-auto px-4">
-        <div className="flex">
-          <aside className="left-top-aside max-w-4/12 border">
-            This is left aside
-            <div>
-              <li className="flex flex-col gap-3">
-                {" "}
-                <button className="btn-primary">
-                  <NavLink to="/user-dashboard">User Dashboard</NavLink>
-                </button>
-                <NavLink to="/librarian-dashboard">Librarian Dashboard</NavLink>
-                <NavLink to="/admin-dashboard">Admin Dashboard</NavLink>
-              </li>
-            </div>
-          </aside>
-          <div className="w-full border">
-            {" "}
-            <Outlet />
-          </div>
-        </div>
-      </div>
-
-      <div className="">
-        <Footer />
-      </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

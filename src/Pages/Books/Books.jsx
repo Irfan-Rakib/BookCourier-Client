@@ -15,8 +15,14 @@ const Books = () => {
     try {
       setLoading(true);
       const res = await axios.get("http://localhost:3000/books");
-      setAllBooks(res.data);
-      setBooks(res.data);
+
+      // Only show published books
+      const publishedBooks = res.data.filter(
+        (book) => book.status && book.status.toLowerCase() === "published"
+      );
+
+      setAllBooks(publishedBooks);
+      setBooks(publishedBooks);
     } catch (error) {
       console.error("Failed to load books", error);
     } finally {
@@ -42,7 +48,7 @@ const Books = () => {
 
   return (
     <div className="container mx-auto px-4 py-10">
-      <h2 className=" text-center mb-2  text-2xl md:text-4xl font-bold text-secondary">
+      <h2 className="text-center mb-2 text-2xl md:text-4xl font-bold text-secondary">
         All Books
       </h2>
       <p className="text-gray-600 mt-3 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-3 text-center">
@@ -70,6 +76,10 @@ const Books = () => {
           <option value="desc">High to Low</option>
         </select>
       </div>
+      {/* Total Books Found */}
+      <p className="text-gray-600 mb-4 text-sm md:text-base">
+        Total Books Found: <span className="font-semibold">{books.length}</span>
+      </p>
 
       {/* Loading Spinner */}
       {loading && (

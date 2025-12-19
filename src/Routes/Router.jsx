@@ -98,6 +98,7 @@ import UserDashboard from "../Pages/Dashboard/User Dashboard/userDashboard";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRouter from "./PrivateRouter";
 import EditBook from "../Pages/Dashboard/Librarian Dashboard/My Books/EditBook";
+import Wishlist from "../Pages/Dashboard/User Dashboard/Wishlist";
 
 export const router = createBrowserRouter([
   {
@@ -155,6 +156,7 @@ export const router = createBrowserRouter([
           { path: "my-orders", element: <MyOrders /> },
           { path: "invoices", element: <Invoices /> },
           { path: "profile", element: <Profile /> },
+          { path: "wishlist", element: <Wishlist /> },
         ],
       },
 

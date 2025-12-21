@@ -59,7 +59,7 @@ const WhyChoose = () => {
   };
 
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 ">
       <h2 className="text-2xl md:text-4xl font-bold text-center text-secondary mb-12">
         Why Choose BookCourier
       </h2>
@@ -73,11 +73,11 @@ const WhyChoose = () => {
         {features.map((feature, idx) => (
           <motion.div
             key={idx}
-            className="bg-white dark:bg-black dark:border rounded-2xl shadow-lg p-8 text-center hover:scale-105 transition-transform duration-300"
+            className="bg-white dark:bg-gray-800  rounded-2xl shadow-lg p-8 text-center hover:scale-105 transition-transform duration-300"
             variants={cardVariants}
           >
             {feature.icon}
-            <h3 className="font-semibold text-xl mb-3 text-gray-900">
+            <h3 className="font-semibold text-xl dark:text-secondary mb-3 text-gray-900">
               {feature.title}
             </h3>
             <p className="text-gray-600">{feature.desc}</p>

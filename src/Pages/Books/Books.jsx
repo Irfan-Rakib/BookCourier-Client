@@ -47,11 +47,11 @@ const Books = () => {
   }, [search, sort, allBooks]);
 
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="container mx-auto  py-10">
       <h2 className="text-center mb-2 text-2xl md:text-4xl font-bold text-secondary">
         All Books
       </h2>
-      <p className="text-gray-600 mt-3 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-3 text-center">
+      <p className="text-gray-600 dark:text-white mt-3 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-3 text-center">
         Browse our collection and find the perfect book for your reading
         journey.
       </p>
@@ -77,8 +77,9 @@ const Books = () => {
         </select>
       </div>
       {/* Total Books Found */}
-      <p className="text-gray-600 mb-4 text-sm md:text-base">
-        Total Books Found: <span className="font-semibold">{books.length}</span>
+      <p className="text-gray-600 mb-4 dark:text-white text-sm md:text-base">
+        Total Books Found:{" "}
+        <span className="font-semibold text-secondary">{books.length}</span>
       </p>
 
       {/* Loading Spinner */}
@@ -97,7 +98,7 @@ const Books = () => {
                 <div
                   key={book._id}
                   onClick={() => navigate(`/books/${book._id}`)}
-                  className="cursor-pointer card bg-base-100 shadow-md hover:shadow-xl transition-all"
+                  className="cursor-pointer card bg-base-100 shadow-md hover:shadow-xl dark:bg-gray-800 gap-5 space-x-1 transition-all"
                 >
                   <figure>
                     <img
@@ -109,13 +110,15 @@ const Books = () => {
 
                   <div className="card-body">
                     <h3 className="card-title line-clamp-1">{book.bookName}</h3>
-                    <p className="text-sm text-gray-500">{book.author}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {book.author}
+                    </p>
 
                     <div className="flex justify-between items-center mt-2">
                       <span className="badge badge-secondary">
                         {book.category}
                       </span>
-                      <span className="font-bold text-primary">
+                      <span className="font-bold dark:text-secondary text-primary">
                         ৳ {book.price}
                       </span>
                     </div>

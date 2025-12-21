@@ -5,7 +5,7 @@ import Footer from "../Pages/SharedPages/Footer/Footer";
 const DashboardLayout = () => {
   const navItemClass = ({ isActive }) =>
     `px-4 py-2 rounded-lg text-sm sm:text-base transition ${
-      isActive ? "bg-primary text-white" : "text-gray-600 hover:bg-base-200"
+      isActive ? "bg-primary text-white" : " hover:bg-base-200"
     }`;
 
   return (

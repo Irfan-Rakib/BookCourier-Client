@@ -52,11 +52,11 @@ const LibrarianDashboard = () => {
         />
       )}
 
-      <div className="min-h-screen flex bg-gray-50">
+      <div className="min-h-screen flex ">
         {/* Sidebar */}
         <div
           className={`
-          bg-white shadow-lg border-r border-gray-200 transition-all duration-300
+           shadow-lg border-r border-gray-200 transition-all duration-300
           w-64 lg:w-72 fixed lg:static inset-y-0 left-0 z-50 transform
           ${
             isSidebarOpen
@@ -65,10 +65,8 @@ const LibrarianDashboard = () => {
           }
         `}
         >
-          <div className="p-6 border-b border-gray-100 sticky top-0 bg-white">
-            <h2 className="text-2xl font-bold text-gray-800">
-              Librarian Panel
-            </h2>
+          <div className="p-6 border-b border-gray-100 sticky top-0 ">
+            <h2 className="text-2xl font-bold ">Librarian Panel</h2>
           </div>
 
           <nav className="p-6 mt-4 space-y-3">
@@ -79,10 +77,10 @@ const LibrarianDashboard = () => {
                   key={item.to}
                   to={item.to}
                   className={({ isActive }) =>
-                    `flex items-center p-3 rounded-xl transition-all duration-200 hover:bg-gray-100 ${
+                    `flex items-center p-3 rounded-xl transition-all duration-200 hover:bg-secondary ${
                       isActive
-                        ? "bg-blue-500 text-white shadow-lg"
-                        : "text-gray-700 hover:text-blue-600"
+                        ? "bg-secondary text-white shadow-lg"
+                        : " hover:text-white"
                     }`
                   }
                   onClick={closeSidebar}

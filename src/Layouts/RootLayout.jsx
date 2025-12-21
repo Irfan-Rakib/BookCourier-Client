@@ -5,7 +5,7 @@ import NavBar from "../Pages/SharedPages/NavBar/NavBar";
 const RootLayout = () => {
   return (
     <div className="">
-      <div className="bg-base-100 shadow-sm">
+      <div className="bg-base-100  shadow-sm">
         {" "}
         <NavBar />
       </div>

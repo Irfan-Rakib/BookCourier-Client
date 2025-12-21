@@ -27,15 +27,13 @@ const MyWishlist = () => {
       <h2 className="text-3xl font-bold mb-6">My Wishlist</h2>
 
       {wishlist.length === 0 ? (
-        <p className="text-center text-gray-500 mt-10">
-          Your wishlist is empty
-        </p>
+        <p className="text-center mt-10">Your wishlist is empty</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
           {wishlist.map((item) => (
             <div
               key={item._id}
-              className="card bg-base-100 shadow-md hover:shadow-xl cursor-pointer"
+              className="card bg-base-100 shadow-md hover:shadow-xl  cursor-pointer"
             >
               <img
                 src={item.book.bookImg_URL}

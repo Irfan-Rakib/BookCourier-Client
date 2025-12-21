@@ -7,6 +7,7 @@ import ThemeToggle from "../../../Components/ThemeToggle";
 // React Icons
 import { FiHome, FiBook, FiMapPin, FiGrid, FiLogOut } from "react-icons/fi";
 import { BiLogIn } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const { logOut, user } = UseAuth();
@@ -39,12 +40,12 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <li>
+      {/* <li>
         <NavLink to="/coverage" className="flex items-center gap-2">
           <FiMapPin />
           Coverage
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
 
@@ -120,9 +121,12 @@ const Navbar = () => {
               className="dropdown-content z-50 menu p-2 shadow bg-base-100 rounded-box w-48"
             >
               <li>
-                <Link to="/dashboard" className="flex items-center gap-2">
-                  <FiGrid className="text-lg" />
-                  Dashboard
+                <Link
+                  to="/dashboard/user/profile"
+                  className="flex items-center gap-2"
+                >
+                  <FaUser className="text-lg" />
+                  My Profile
                 </Link>
               </li>
 

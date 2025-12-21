@@ -55,7 +55,7 @@ const Wishlist = () => {
           <p className="text-gray-500 mb-8">
             Explore our collection and save your favorite books for later!
           </p>
-          <Link to="/all-books" className="btn btn-primary px-8">
+          <Link to="/books" className="btn btn-primary px-8">
             Browse Books
           </Link>
         </div>

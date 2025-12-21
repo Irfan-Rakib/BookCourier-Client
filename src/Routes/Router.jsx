@@ -99,6 +99,11 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRouter from "./PrivateRouter";
 import EditBook from "../Pages/Dashboard/Librarian Dashboard/My Books/EditBook";
 import Wishlist from "../Pages/Dashboard/User Dashboard/Wishlist";
+import AllUsers from "../Pages/Dashboard/Admin Dashboard/All Users/AllUsers";
+import ManageBooks from "../Pages/Dashboard/Admin Dashboard/Manage Books/ManageBooks";
+import Coverage from "../Pages/HomePage/Coverage/Coverage";
+import PaymentPage from "../Components/PaymentPage";
+import UserDashboardChart from "../Components/UserDasboardChart";
 
 export const router = createBrowserRouter([
   {
@@ -108,6 +113,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "books", element: <Books /> },
+      { path: "coverage", element: <Coverage /> },
       {
         path: "books/:id",
         element: (
@@ -115,6 +121,10 @@ export const router = createBrowserRouter([
             <BookDetails />
           </PrivateRouter>
         ),
+      },
+      {
+        path: "/payment/:id",
+        element: <PaymentPage />,
       },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
@@ -157,6 +167,14 @@ export const router = createBrowserRouter([
           { path: "invoices", element: <Invoices /> },
           { path: "profile", element: <Profile /> },
           { path: "wishlist", element: <Wishlist /> },
+          {
+            path: "payment/:orderId",
+            element: <PaymentPage />,
+          },
+          {
+            path: "chart",
+            element: <UserDashboardChart />,
+          },
         ],
       },
 
@@ -165,9 +183,14 @@ export const router = createBrowserRouter([
         path: "admin",
         element: (
           <PrivateRouter>
-            <AdminDashboard />
+            <AdminDashboard />,
           </PrivateRouter>
         ),
+        children: [
+          { path: "users", element: <AllUsers /> },
+          { path: "manage-book", element: <ManageBooks /> },
+          { path: "profile", element: <Profile /> },
+        ],
       },
     ],
   },

@@ -43,7 +43,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-16 px-6 ">
+    <section className="py-16 ">
       <h2 className="text-2xl md:text-4xl font-bold text-center text-secondary mb-12">
         What Our Users Say
       </h2>
@@ -57,7 +57,7 @@ const Testimonials = () => {
         {testimonials.map((t, idx) => (
           <motion.div
             key={idx}
-            className="bg-white dark:bg-black dark:text-white rounded-2xl shadow-lg p-8 text-center hover:scale-105 transition-transform duration-300 dark:border"
+            className="bg-white dark:bg-gray-800  rounded-2xl shadow-lg p-8 text-center hover:scale-105 transition-transform duration-300 "
             variants={cardVariants}
           >
             <div className="flex justify-center mb-4">
@@ -68,8 +68,12 @@ const Testimonials = () => {
               />
             </div>
             <FaQuoteLeft className="text-accent w-8 h-8 mx-auto mb-4" />
-            <p className="text-gray-700  mb-4">"{t.feedback}"</p>
-            <h3 className="font-semibold text-lg text-gray-900">{t.name}</h3>
+            <p className="text-gray-700 dark:text-gray-500  mb-4">
+              "{t.feedback}"
+            </p>
+            <h3 className="font-semibold text-lg dark:text-secondary  text-gray-900">
+              {t.name}
+            </h3>
             <p className="text-gray-500">{t.role}</p>
             <div className="flex justify-center mt-2 space-x-1 text-yellow-400">
               <FaStar />

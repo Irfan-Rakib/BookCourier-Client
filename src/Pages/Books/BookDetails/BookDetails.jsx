@@ -75,7 +75,7 @@ const BookDetails = () => {
         {/* Info */}
         <div className="space-y-4">
           <h2 className="text-3xl font-bold">{book.bookName}</h2>
-          <p className="text-gray-500">By {book.author}</p>
+          <p className="text-gray-500 dark:text-gray-400">By {book.author}</p>
 
           <div className="flex gap-3">
             {book.category && (
@@ -86,11 +86,15 @@ const BookDetails = () => {
             )}
           </div>
 
-          <p className="text-gray-700 leading-relaxed">{book.comment}</p>
+          <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            {book.comment}
+          </p>
 
           <p className="text-lg">
             <span className="font-semibold">Price:</span>{" "}
-            <span className="text-primary font-bold">৳ {book.price}</span>
+            <span className="text-primary dark:text-secondary font-bold">
+              ৳ {book.price}
+            </span>
           </p>
 
           {book.rating && (
@@ -111,14 +115,14 @@ const BookDetails = () => {
             <button
               onClick={() => setOpen(true)}
               disabled={book.stock === 0}
-              className="btn btn-primary"
+              className="btn btn-primary hover:bg-secondary"
             >
               Order Now
             </button>
 
             <button
               onClick={handleWishlist}
-              className="btn btn-outline btn-primary"
+              className="btn btn-outline dark:border-secondary btn-primary"
             >
               ❤️ Add to Wishlist
             </button>

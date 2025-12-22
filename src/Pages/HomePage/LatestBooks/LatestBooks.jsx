@@ -28,7 +28,7 @@ const LatestBooks = () => {
 
   return (
     <section className="py-16 bg-base-100">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto ">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-center mb-2 text-2xl md:text-4xl font-bold text-secondary">

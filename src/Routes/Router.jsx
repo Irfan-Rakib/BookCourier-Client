@@ -104,6 +104,9 @@ import ManageBooks from "../Pages/Dashboard/Admin Dashboard/Manage Books/ManageB
 import Coverage from "../Pages/HomePage/Coverage/Coverage";
 import PaymentPage from "../Components/PaymentPage";
 import UserDashboardChart from "../Components/UserDasboardChart";
+import AdminDashboardChart from "../Components/AdminDashboardChart";
+import LibrarianDashboardChart from "../Components/LibrarianDashboardChart";
+import AdminPrivateRouter from "./AdminPrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -147,6 +150,11 @@ export const router = createBrowserRouter([
       {
         path: "librarian",
         element: (
+          // <PrivateRouter>
+          //   <AdminPrivateRouter>
+          //     <LibrarianDashboard />
+          //   </AdminPrivateRouter>
+          // </PrivateRouter>
           <PrivateRouter>
             <LibrarianDashboard />
           </PrivateRouter>
@@ -156,6 +164,7 @@ export const router = createBrowserRouter([
           { path: "orders", element: <Orders /> },
           { path: "add-books", element: <AddBook /> },
           { path: "books/edit/:id", element: <EditBook /> },
+          { path: "chart", element: <LibrarianDashboardChart /> },
         ],
       },
 
@@ -178,18 +187,15 @@ export const router = createBrowserRouter([
         ],
       },
 
-      // { path: "user", element: <UserDashboard /> },
       {
         path: "admin",
-        element: (
-          <PrivateRouter>
-            <AdminDashboard />,
-          </PrivateRouter>
-        ),
+        element: <AdminPrivateRouter />, // <-- modal + authentication wrapper
         children: [
+          { index: true, element: <AdminDashboard /> },
           { path: "users", element: <AllUsers /> },
           { path: "manage-book", element: <ManageBooks /> },
           { path: "profile", element: <Profile /> },
+          { path: "chart", element: <AdminDashboardChart /> },
         ],
       },
     ],

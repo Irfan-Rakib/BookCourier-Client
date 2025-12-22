@@ -20,7 +20,7 @@
 //       setLoading(true);
 //       try {
 //         const res = await axios.get(
-//           `http://localhost:3000/invoices/${user.email}`
+//           `https://book-courier-server-snowy.vercel.app/invoices/${user.email}`
 //         );
 //         const sortedInvoices = res.data.sort(
 //           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
@@ -281,7 +281,7 @@ const Invoices = () => {
 
       try {
         const res = await axios.get(
-          `http://localhost:3000/invoices/${user.email}`
+          `https://book-courier-server-snowy.vercel.app/invoices/${user.email}`
         );
 
         const sorted = res.data.sort(

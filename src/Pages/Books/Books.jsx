@@ -14,7 +14,9 @@ const Books = () => {
   const fetchBooks = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/books");
+      const res = await axios.get(
+        "https://book-courier-server-snowy.vercel.app/books"
+      );
 
       // Only show published books
       const publishedBooks = res.data.filter(

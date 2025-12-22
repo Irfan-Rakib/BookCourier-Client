@@ -16,7 +16,9 @@ const BookReviews = ({ bookId, userEmail }) => {
   const fetchReviews = async () => {
     try {
       setReviewsLoading(true);
-      const res = await axios.get(`http://localhost:3000/reviews/${bookId}`);
+      const res = await axios.get(
+        `https://book-courier-server-snowy.vercel.app/reviews/${bookId}`
+      );
       setReviews(res.data);
     } catch (err) {
       console.error(err);
@@ -30,7 +32,9 @@ const BookReviews = ({ bookId, userEmail }) => {
     if (!user?.email) return;
 
     try {
-      const res = await axios.get(`http://localhost:3000/orders/${user.email}`);
+      const res = await axios.get(
+        `https://book-courier-server-snowy.vercel.app/orders/${user.email}`
+      );
       const orderedBookIds = res.data.map((o) => o.bookId.toString()); // ✅ Convert to string
       setCanReview(orderedBookIds.includes(bookId));
     } catch (err) {
@@ -50,7 +54,7 @@ const BookReviews = ({ bookId, userEmail }) => {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:3000/reviews", {
+      await axios.post("https://book-courier-server-snowy.vercel.app/reviews", {
         bookId,
         email: user.email,
         rating,

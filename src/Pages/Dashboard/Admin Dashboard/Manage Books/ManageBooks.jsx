@@ -11,7 +11,7 @@
 //   const fetchBooks = async () => {
 //     try {
 //       setLoading(true);
-//       const res = await axios.get("http://localhost:3000/admin/books");
+//       const res = await axios.get("https://book-courier-server-snowy.vercel.app/admin/books");
 //       setBooks(res.data);
 //     } catch (error) {
 //       toast.error("Failed to fetch books");
@@ -37,7 +37,7 @@
 //     try {
 //       const newStatus =
 //         currentStatus === "Published" ? "Unpublished" : "Published";
-//       await axios.patch(`http://localhost:3000/admin/books/${bookId}`, {
+//       await axios.patch(`https://book-courier-server-snowy.vercel.app/admin/books/${bookId}`, {
 //         status: newStatus,
 //       });
 //       toast.success(`Book ${newStatus.toLowerCase()} successfully!`);
@@ -56,7 +56,7 @@
 //       return;
 
 //     try {
-//       await axios.delete(`http://localhost:3000/admin/books/${bookId}`);
+//       await axios.delete(`https://book-courier-server-snowy.vercel.app/admin/books/${bookId}`);
 //       toast.success("Book and orders deleted successfully!");
 //       fetchBooks();
 //     } catch (error) {
@@ -343,7 +343,9 @@ const ManageBooks = () => {
   const fetchBooks = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/admin/books");
+      const res = await axios.get(
+        "https://book-courier-server-snowy.vercel.app/admin/books"
+      );
       setBooks(res.data || []);
     } catch (error) {
       toast.error("Failed to fetch books");
@@ -373,9 +375,12 @@ const ManageBooks = () => {
       const newStatus =
         currentStatus === "Published" ? "Unpublished" : "Published";
 
-      await axios.patch(`http://localhost:3000/admin/books/${bookId}`, {
-        status: newStatus,
-      });
+      await axios.patch(
+        `https://book-courier-server-snowy.vercel.app/admin/books/${bookId}`,
+        {
+          status: newStatus,
+        }
+      );
 
       toast.success(`Book ${newStatus.toLowerCase()} successfully`);
       fetchBooks();
@@ -396,7 +401,9 @@ const ManageBooks = () => {
       return;
 
     try {
-      await axios.delete(`http://localhost:3000/admin/books/${bookId}`);
+      await axios.delete(
+        `https://book-courier-server-snowy.vercel.app/admin/books/${bookId}`
+      );
       toast.success("Book and orders deleted");
       fetchBooks();
     } catch (error) {

@@ -24,7 +24,7 @@ const LibrarianDashboardChart = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        `http://localhost:3000/librarian/stats/${user.email}`
+        `https://book-courier-server-snowy.vercel.app/librarian/stats/${user.email}`
       );
       setStats(res.data);
       console.log("Librarian Stats:", res.data);

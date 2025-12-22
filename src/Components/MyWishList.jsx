@@ -10,7 +10,7 @@ const MyWishlist = () => {
   const fetchWishlist = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/wishlist/${user.email}`
+        `https://book-courier-server-snowy.vercel.app/wishlist/${user.email}`
       );
       setWishlist(res.data);
     } catch {

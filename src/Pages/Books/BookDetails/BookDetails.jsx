@@ -18,7 +18,9 @@ const BookDetails = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/books/${id}`);
+        const res = await axios.get(
+          `https://book-courier-server-snowy.vercel.app/books/${id}`
+        );
         setBook(res.data);
       } catch {
         setError("Failed to load book details");
@@ -48,13 +50,16 @@ const BookDetails = () => {
     }
 
     try {
-      await axios.post("http://localhost:3000/wishlist", {
-        email: user.email,
-        bookId: book._id,
-        bookName: book.bookName,
-        price: book.price,
-        image: book.bookImg_URL,
-      });
+      await axios.post(
+        "https://book-courier-server-snowy.vercel.app/wishlist",
+        {
+          email: user.email,
+          bookId: book._id,
+          bookName: book.bookName,
+          price: book.price,
+          image: book.bookImg_URL,
+        }
+      );
 
       toast.success("Added to wishlist");
     } catch (err) {

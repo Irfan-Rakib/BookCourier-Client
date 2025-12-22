@@ -26,7 +26,9 @@ const AdminDashboardChart = () => {
   const fetchStats = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/admin/stats");
+      const res = await axios.get(
+        "https://book-courier-server-snowy.vercel.app/admin/stats"
+      );
       setStats(res.data);
     } catch (error) {
       console.error("Admin stats error:", error);

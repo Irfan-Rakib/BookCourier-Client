@@ -38,8 +38,12 @@ const UserDashboardChart = () => {
       setLoading(true);
 
       const [ordersRes, wishlistRes] = await Promise.all([
-        axios.get(`http://localhost:3000/orders/${user.email}`),
-        axios.get(`http://localhost:3000/wishlist/${user.email}`),
+        axios.get(
+          `https://book-courier-server-snowy.vercel.app/orders/${user.email}`
+        ),
+        axios.get(
+          `https://book-courier-server-snowy.vercel.app/wishlist/${user.email}`
+        ),
       ]);
 
       const orders = ordersRes.data;

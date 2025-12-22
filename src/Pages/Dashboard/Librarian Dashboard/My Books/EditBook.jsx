@@ -26,7 +26,7 @@
 //   const fetchBook = async () => {
 //     try {
 //       setLoading(true);
-//       const res = await axios.get(`http://localhost:3000/books/${id}`);
+//       const res = await axios.get(`https://book-courier-server-snowy.vercel.app/books/${id}`);
 //       setBookData(res.data);
 //     } catch (error) {
 //       toast.error("Failed to fetch book data");
@@ -59,7 +59,7 @@
 
 //       const { _id, ...dataToUpdate } = bookData;
 
-//       await axios.patch(`http://localhost:3000/books/${id}`, {
+//       await axios.patch(`https://book-courier-server-snowy.vercel.app/books/${id}`, {
 //         ...dataToUpdate,
 //         price: Number(bookData.price),
 //         stock: Number(bookData.stock),
@@ -201,7 +201,9 @@ const EditBook = () => {
   const fetchBook = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`http://localhost:3000/books/${id}`);
+      const res = await axios.get(
+        `https://book-courier-server-snowy.vercel.app/books/${id}`
+      );
       setBookData(res.data);
     } catch (error) {
       toast.error("Failed to fetch book data");
@@ -238,12 +240,15 @@ const EditBook = () => {
 
       const { _id, ...dataToUpdate } = bookData;
 
-      await axios.patch(`http://localhost:3000/books/${id}`, {
-        ...dataToUpdate,
-        price: Number(bookData.price),
-        stock: Number(bookData.stock),
-        librarianEmail: user?.email,
-      });
+      await axios.patch(
+        `https://book-courier-server-snowy.vercel.app/books/${id}`,
+        {
+          ...dataToUpdate,
+          price: Number(bookData.price),
+          stock: Number(bookData.stock),
+          librarianEmail: user?.email,
+        }
+      );
 
       toast.success("Book updated successfully");
       navigate("/dashboard/librarian/books");

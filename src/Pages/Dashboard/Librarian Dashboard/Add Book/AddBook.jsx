@@ -40,7 +40,7 @@
 //         createdAt: new Date(),
 //       };
 
-//       await axios.post("http://localhost:3000/books", newBook);
+//       await axios.post("https://book-courier-server-snowy.vercel.app/books", newBook);
 //       toast.success("Book added successfully!");
 //       navigate("/books");
 //     } catch (err) {
@@ -193,7 +193,10 @@ const AddBook = () => {
         librarianEmail: user.email, // ✅ REQUIRED
       };
 
-      await axios.post("http://localhost:3000/books", newBook);
+      await axios.post(
+        "https://book-courier-server-snowy.vercel.app/books",
+        newBook
+      );
 
       toast.success("Book added successfully!");
       navigate("/dashboard/librarian");

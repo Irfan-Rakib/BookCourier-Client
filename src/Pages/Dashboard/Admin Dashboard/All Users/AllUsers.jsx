@@ -10,7 +10,7 @@
 //   const fetchUsers = async () => {
 //     try {
 //       setLoading(true);
-//       const res = await axios.get("http://localhost:3000/admin/users");
+//       const res = await axios.get("https://book-courier-server-snowy.vercel.app/admin/users");
 //       setUsers(res.data);
 //     } catch (error) {
 //       toast.error("Failed to fetch users");
@@ -27,7 +27,7 @@
 //     if (!window.confirm("Make this user Librarian?")) return;
 
 //     try {
-//       await axios.patch(`http://localhost:3000/admin/users/${userId}`, {
+//       await axios.patch(`https://book-courier-server-snowy.vercel.app/admin/users/${userId}`, {
 //         role: "librarian",
 //       });
 //       toast.success("✅ User promoted to Librarian!");
@@ -41,7 +41,7 @@
 //     if (!window.confirm("Make this user Admin?")) return;
 
 //     try {
-//       await axios.patch(`http://localhost:3000/admin/users/${userId}`, {
+//       await axios.patch(`https://book-courier-server-snowy.vercel.app/admin/users/${userId}`, {
 //         role: "admin",
 //       });
 //       toast.success("✅ User promoted to Admin!");
@@ -260,7 +260,9 @@ const AllUsers = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/admin/users");
+      const res = await axios.get(
+        "https://book-courier-server-snowy.vercel.app/admin/users"
+      );
       setUsers(res.data);
     } catch (error) {
       toast.error("Failed to fetch users");
@@ -278,9 +280,12 @@ const AllUsers = () => {
     if (!window.confirm("Make this user Librarian?")) return;
 
     try {
-      await axios.patch(`http://localhost:3000/admin/users/${userId}`, {
-        role: "librarian",
-      });
+      await axios.patch(
+        `https://book-courier-server-snowy.vercel.app/admin/users/${userId}`,
+        {
+          role: "librarian",
+        }
+      );
       toast.success("User promoted to Librarian!");
       fetchUsers();
     } catch {
@@ -292,9 +297,12 @@ const AllUsers = () => {
     if (!window.confirm("Make this user Admin?")) return;
 
     try {
-      await axios.patch(`http://localhost:3000/admin/users/${userId}`, {
-        role: "admin",
-      });
+      await axios.patch(
+        `https://book-courier-server-snowy.vercel.app/admin/users/${userId}`,
+        {
+          role: "admin",
+        }
+      );
       toast.success("User promoted to Admin!");
       fetchUsers();
     } catch {

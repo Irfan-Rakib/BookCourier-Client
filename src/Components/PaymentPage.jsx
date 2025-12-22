@@ -15,7 +15,7 @@ const PaymentPage = () => {
     const fetchOrder = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/orders/single/${orderId}`
+          `https://book-courier-server-snowy.vercel.app/orders/single/${orderId}`
         );
         setOrder(res.data);
       } catch (err) {
@@ -35,7 +35,9 @@ const PaymentPage = () => {
     }
     try {
       setPaying(true);
-      await axios.patch(`http://localhost:3000/orders/pay/${orderId}`);
+      await axios.patch(
+        `https://book-courier-server-snowy.vercel.app/orders/pay/${orderId}`
+      );
       toast.success(
         `Payment successful! ৳${(
           order.totalPrice || order.price

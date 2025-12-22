@@ -116,11 +116,14 @@ const AuthProvider = ({ children }) => {
         .replace(/_/g, " ");
       await updateProfile(userCredential.user, { displayName });
 
-      await axios.post("http://localhost:3000/auth/register", {
-        uid: userCredential.user.uid,
-        displayName,
-        email,
-      });
+      await axios.post(
+        "https://book-courier-server-snowy.vercel.app/auth/register",
+        {
+          uid: userCredential.user.uid,
+          displayName,
+          email,
+        }
+      );
 
       return userCredential;
     } catch (error) {
@@ -135,9 +138,12 @@ const AuthProvider = ({ children }) => {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       if (result.user.uid) {
-        await axios.post("http://localhost:3000/auth/login", {
-          uid: result.user.uid,
-        });
+        await axios.post(
+          "https://book-courier-server-snowy.vercel.app/auth/login",
+          {
+            uid: result.user.uid,
+          }
+        );
       }
       return result;
     } catch (error) {
@@ -158,7 +164,10 @@ const AuthProvider = ({ children }) => {
       };
 
       await axios
-        .post("http://localhost:3000/auth/register", userData)
+        .post(
+          "https://book-courier-server-snowy.vercel.app/auth/register",
+          userData
+        )
         .catch(() => {});
 
       return result;

@@ -14,12 +14,15 @@ const AdminLogin = () => {
     setLoading(true);
 
     try {
-      await axios.get("http://localhost:3000/superadmin/dashboard", {
-        headers: {
-          "x-admin-email": creds.email,
-          "x-admin-pass": creds.password,
-        },
-      });
+      await axios.get(
+        "https://book-courier-server-snowy.vercel.app/superadmin/dashboard",
+        {
+          headers: {
+            "x-admin-email": creds.email,
+            "x-admin-pass": creds.password,
+          },
+        }
+      );
 
       toast.success("✅ Super Admin Login Success!");
       navigate(location.state?.from || "/superadmin/dashboard");

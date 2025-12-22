@@ -13,7 +13,9 @@ const LatestBooks = () => {
       try {
         setLoading(true);
         // ✅ Backend এর নতুন route
-        const res = await axios.get("http://localhost:3000/books/latest");
+        const res = await axios.get(
+          "https://book-courier-server-snowy.vercel.app/books/latest"
+        );
         setBooks(res.data);
       } catch (error) {
         console.error("Failed to fetch latest books", error);

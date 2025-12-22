@@ -24,7 +24,7 @@
 
 //     try {
 //       setLoading(true);
-//       await axios.post("http://localhost:3000/orders", {
+//       await axios.post("https://book-courier-server-snowy.vercel.app/orders", {
 //         bookId: book._id,
 //         bookName: book.bookName,
 //         price: book.price,
@@ -243,7 +243,7 @@ const OrderModal = ({ book, closeModal }) => {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:3000/orders", {
+      await axios.post("https://book-courier-server-snowy.vercel.app/orders", {
         bookId: book._id,
         bookName: book.bookName,
         price: book.price, // Single book price

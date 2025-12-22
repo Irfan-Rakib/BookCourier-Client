@@ -15,7 +15,7 @@ const Orders = () => {
       setLoading(true);
       console.log("🔍 Fetching orders for:", user.email); // DEBUG
       const res = await axios.get(
-        `http://localhost:3000/librarian/orders/${user.email}`
+        `https://book-courier-server-snowy.vercel.app/librarian/orders/${user.email}`
       );
       console.log("📦 Orders received:", res.data.length); // DEBUG
       setOrders(res.data);
@@ -37,7 +37,7 @@ const Orders = () => {
     try {
       console.log("❌ Cancelling order:", orderId); // DEBUG
       const res = await axios.patch(
-        `http://localhost:3000/librarian/orders/status/${orderId}`,
+        `https://book-courier-server-snowy.vercel.app/librarian/orders/status/${orderId}`,
         { orderStatus: "cancelled" } // ✅ Body properly formatted
       );
       console.log("✅ Cancel response:", res.data); // DEBUG

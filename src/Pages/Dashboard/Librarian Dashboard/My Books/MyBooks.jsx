@@ -19,7 +19,7 @@ const MyBooks = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        `http://localhost:3000/librarian/books/${user.email}`
+        `https://book-courier-server-snowy.vercel.app/librarian/books/${user.email}`
       );
       setBooks(res.data || []);
     } catch (error) {
@@ -42,7 +42,9 @@ const MyBooks = () => {
       return;
 
     try {
-      await axios.patch(`http://localhost:3000/books/unpublish/${id}`);
+      await axios.patch(
+        `https://book-courier-server-snowy.vercel.app/books/unpublish/${id}`
+      );
       toast.success("Book unpublished successfully");
       fetchBooks();
     } catch (error) {

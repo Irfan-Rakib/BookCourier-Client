@@ -16,7 +16,7 @@ const Wishlist = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `http://localhost:3000/wishlist/${user.email}`
+          `https://book-courier-server-snowy.vercel.app/wishlist/${user.email}`
         );
         setWishlist(res.data);
       } catch (err) {
@@ -31,7 +31,9 @@ const Wishlist = () => {
 
   const handleRemove = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/wishlist/${id}`);
+      await axios.delete(
+        `https://book-courier-server-snowy.vercel.app/wishlist/${id}`
+      );
       setWishlist(wishlist.filter((item) => item._id !== id));
       toast.success("Removed from wishlist");
     } catch (err) {

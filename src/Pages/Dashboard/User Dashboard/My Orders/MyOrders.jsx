@@ -15,7 +15,7 @@
 
 //     setLoading(true);
 //     try {
-//       const res = await axios.get(`http://localhost:3000/orders/${user.email}`);
+//       const res = await axios.get(`https://book-courier-server-snowy.vercel.app/orders/${user.email}`);
 //       const sortedOrders = res.data.sort(
 //         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
 //       );
@@ -38,7 +38,7 @@
 //     if (!confirmed) return;
 
 //     try {
-//       await axios.patch(`http://localhost:3000/orders/cancel/${id}`);
+//       await axios.patch(`https://book-courier-server-snowy.vercel.app/orders/cancel/${id}`);
 //       toast.success("Order cancelled successfully!");
 //       fetchOrders();
 //     } catch (error) {
@@ -314,7 +314,9 @@ const MyOrders = () => {
 
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:3000/orders/${user.email}`);
+      const res = await axios.get(
+        `https://book-courier-server-snowy.vercel.app/orders/${user.email}`
+      );
 
       const sortedOrders = res.data.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
@@ -340,7 +342,9 @@ const MyOrders = () => {
     if (!confirmed) return;
 
     try {
-      await axios.patch(`http://localhost:3000/orders/cancel/${id}`);
+      await axios.patch(
+        `https://book-courier-server-snowy.vercel.app/orders/cancel/${id}`
+      );
       toast.success("Order cancelled successfully!");
       fetchOrders();
     } catch (error) {

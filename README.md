@@ -50,6 +50,6 @@ BookCourier is a full-stack library delivery management platform designed to bri
 Follow these steps to set up the project locally:
 
 📧 Contact
-Your Name - [irfanrakib756@gmail.com] - [[LinkedIn](https://www.linkedin.com/in/rakib756/)]
+Your Name - [[Mail](https://www.irfanrakib756@gmail.com/)] - [[LinkedIn](https://www.linkedin.com/in/rakib756/)]
 Project Link (Frontend): https://github.com/Irfan-Rakib/BookCourier-Client
 Project Link (Backend): https://github.com/Irfan-Rakib/BookCourier-Server

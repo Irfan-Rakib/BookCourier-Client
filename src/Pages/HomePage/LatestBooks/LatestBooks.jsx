@@ -1,100 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import { useNavigate } from "react-router";
-
-// const LatestBooks = () => {
-//   const [books, setBooks] = useState([]);
-//   const [loading, setLoading] = useState(false);
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const fetchLatestBooks = async () => {
-//       try {
-//         setLoading(true);
-//         // Fetch latest 6 books sorted by createdAt descending
-//         const res = await axios.get(
-//           "http://localhost:3000/books?latest=true&limit=6"
-//         );
-//         setBooks(res.data);
-//       } catch (error) {
-//         console.error("Failed to fetch latest books", error);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchLatestBooks();
-//   }, []);
-
-//   return (
-//     <section className="py-16 ">
-//       <div className=" text-center mb-10">
-//         <h2 className="text-center mb-2  text-2xl md:text-4xl font-bold text-secondary">
-//           Latest Books
-//         </h2>
-//         <p className="text-gray-600 dark:text-gray-300 mt-2 max-w-2xl mx-auto">
-//           Check out the newest additions to our library collection.
-//         </p>
-//       </div>
-
-//       {loading ? (
-//         <div className="flex justify-center items-center py-20">
-//           <span className="loading loading-spinner loading-lg text-primary"></span>
-//         </div>
-//       ) : (
-//         <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6">
-//           {books.length > 0 ? (
-//             books.map((book) => (
-//               <div
-//                 key={book._id}
-//                 onClick={() => navigate(`/books/${book._id}`)}
-//                 className="cursor-pointer card bg-white gap-5 dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all rounded-lg overflow-hidden"
-//               >
-//                 <figure>
-//                   <img
-//                     src={book.bookImg_URL}
-//                     alt={book.bookName}
-//                     className="h-56 w-full object-cover"
-//                   />
-//                 </figure>
-
-//                 <div className="card-body p-4">
-//                   <h3 className="card-title line-clamp-1 text-gray-900 dark:text-gray-100">
-//                     {book.bookName}
-//                   </h3>
-//                   <p className="text-sm text-gray-500 dark:text-gray-400">
-//                     {book.author}
-//                   </p>
-
-//                   <div className="flex justify-between items-center mt-2">
-//                     <span className="badge badge-secondary">
-//                       {book.category}
-//                     </span>
-//                     <span className="font-bold dark:text-secondary text-primary">
-//                       ৳ {book.price}
-//                     </span>
-//                   </div>
-
-//                   <div className="mt-2 flex justify-between text-sm text-gray-600 dark:text-gray-300">
-//                     <span>⭐ {book.rating}</span>
-//                     <span>Stock: {book.stock}</span>
-//                   </div>
-//                 </div>
-//               </div>
-//             ))
-//           ) : (
-//             <p className="text-center col-span-full text-gray-500 dark:text-gray-400">
-//               No latest books available
-//             </p>
-//           )}
-//         </div>
-//       )}
-//     </section>
-//   );
-// };
-
-// export default LatestBooks;
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
@@ -128,10 +31,10 @@ const LatestBooks = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-black mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-center mb-2 text-2xl md:text-4xl font-bold text-secondary">
             🆕 Latest Books
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 dark:text-white mt-3 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-3 text-center">
             Discover the newest additions to our library collection. Fresh books
             added daily!
           </p>
@@ -140,75 +43,44 @@ const LatestBooks = () => {
         {/* Loading */}
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <div className="text-center">
-              <span className="loading loading-spinner loading-lg text-primary mb-4 block mx-auto"></span>
-              <p className="text-lg text-gray-600">Loading latest books...</p>
-            </div>
+            <span className="loading loading-spinner loading-lg text-primary"></span>
           </div>
         ) : (
           /* Books Grid */
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {books.length > 0 ? (
               books.map((book) => (
                 <div
                   key={book._id}
                   onClick={() => navigate(`/books/${book._id}`)}
-                  className="group card bg-base-100 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden rounded-2xl border border-base-200 hover:border-primary"
+                  className="cursor-pointer card bg-base-100 shadow-md hover:shadow-xl dark:bg-gray-800 gap-5 space-x-1 transition-all"
                 >
-                  {/* Book Image */}
-                  <figure className="h-60 overflow-hidden">
+                  <figure>
                     <img
                       src={book.bookImg_URL}
                       alt={book.bookName}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      onError={(e) => {
-                        e.target.src =
-                          "https://via.placeholder.com/300x400/gray/white?text=No+Image";
-                      }}
+                      className="h-56 w-full object-cover"
                     />
                   </figure>
 
-                  {/* Book Info */}
-                  <div className="card-body p-6">
-                    {/* Title */}
-                    <h3 className="card-title text-xl font-bold line-clamp-2 text-gray-900 group-hover:text-primary transition-colors">
-                      {book.bookName}
-                    </h3>
-
-                    {/* Author */}
-                    <p className="text-sm text-gray-500 font-medium mb-3">
-                      by {book.author}
+                  <div className="card-body">
+                    <h3 className="card-title line-clamp-1">{book.bookName}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {book.author}
                     </p>
 
-                    {/* Badges */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {book.category && (
-                        <span className="badge badge-outline badge-secondary px-3 py-2">
-                          {book.category}
-                        </span>
-                      )}
-                      <span className="badge badge-success px-3 py-2">
-                        In Stock ({book.stock || 0})
+                    <div className="flex justify-between items-center mt-2">
+                      <span className="badge badge-secondary">
+                        {book.category}
+                      </span>
+                      <span className="font-bold dark:text-secondary text-primary">
+                        ৳ {book.price}
                       </span>
                     </div>
 
-                    {/* Price & Rating */}
-                    <div className="flex justify-between items-center mb-4">
-                      <div className="flex items-center gap-2 text-lg font-bold text-primary">
-                        ৳{book.price?.toLocaleString()}
-                      </div>
-                      {book.rating && (
-                        <div className="flex items-center gap-1 text-sm bg-primary/10 px-3 py-1 rounded-full">
-                          ⭐ {book.rating}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Action Button */}
-                    <div className="card-actions justify-end">
-                      <button className="btn btn-primary btn-sm w-full group-hover:bg-secondary transition-all">
-                        View Details →
-                      </button>
+                    <div className="mt-3 flex justify-between text-sm">
+                      <span>⭐ {book.rating}</span>
+                      <span>Stock: {book.stock}</span>
                     </div>
                   </div>
                 </div>
@@ -233,7 +105,7 @@ const LatestBooks = () => {
                 <h3 className="text-2xl font-bold text-gray-700 mb-2">
                   No Latest Books
                 </h3>
-                <p className="text-lg text-gray-500">
+                <p className="text-gray-600 mb-4 dark:text-white text-sm md:text-base">
                   New books will appear here soon!
                 </p>
               </div>

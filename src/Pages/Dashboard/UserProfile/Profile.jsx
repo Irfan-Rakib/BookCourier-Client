@@ -105,7 +105,7 @@ const Profile = () => {
         </div>
 
         {/* Profile Card */}
-        <div className="card bg-base-100 shadow-2xl max-w-2xl mx-auto">
+        <div className="card bg-base-100 shadow-lg  mx-auto">
           <div className="card-body p-8 lg:p-12">
             {/* Profile Preview */}
             <div className="flex flex-col lg:flex-row items-center gap-8 mb-8">

@@ -106,7 +106,6 @@ import PaymentPage from "../Components/PaymentPage";
 import UserDashboardChart from "../Components/UserDasboardChart";
 import AdminDashboardChart from "../Components/AdminDashboardChart";
 import LibrarianDashboardChart from "../Components/LibrarianDashboardChart";
-import AdminPrivateRouter from "./AdminPrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -170,7 +169,11 @@ export const router = createBrowserRouter([
 
       {
         path: "user",
-        element: <UserDashboard />,
+        element: (
+          <PrivateRouter>
+            <UserDashboard />
+          </PrivateRouter>
+        ),
         children: [
           { path: "my-orders", element: <MyOrders /> },
           { path: "invoices", element: <Invoices /> },
@@ -189,15 +192,25 @@ export const router = createBrowserRouter([
 
       {
         path: "admin",
-        element: <AdminPrivateRouter />, // <-- modal + authentication wrapper
+        element: <AdminDashboard />,
         children: [
-          { index: true, element: <AdminDashboard /> },
           { path: "users", element: <AllUsers /> },
           { path: "manage-book", element: <ManageBooks /> },
           { path: "profile", element: <Profile /> },
           { path: "chart", element: <AdminDashboardChart /> },
         ],
       },
+      // {
+      //   path: "admin",
+      //   element: <AdminPrivateRouter />, // <-- modal + authentication wrapper
+      //   children: [
+      //     { index: true, element: <AdminDashboard /> },
+      //     { path: "users", element: <AllUsers /> },
+      //     { path: "manage-book", element: <ManageBooks /> },
+      //     { path: "profile", element: <Profile /> },
+      //     { path: "chart", element: <AdminDashboardChart /> },
+      //   ],
+      // },
     ],
   },
 ]);

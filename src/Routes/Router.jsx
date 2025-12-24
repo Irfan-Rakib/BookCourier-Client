@@ -106,6 +106,8 @@ import PaymentPage from "../Components/PaymentPage";
 import UserDashboardChart from "../Components/UserDasboardChart";
 import AdminDashboardChart from "../Components/AdminDashboardChart";
 import LibrarianDashboardChart from "../Components/LibrarianDashboardChart";
+import AdminRoute from "./AdminRoute";
+import LibrarianRoute from "./LibrarianRoute";
 
 export const router = createBrowserRouter([
   {
@@ -146,24 +148,22 @@ export const router = createBrowserRouter([
           </PrivateRouter>
         ),
       },
+
       {
         path: "librarian",
-        element: (
-          // <PrivateRouter>
-          //   <AdminPrivateRouter>
-          //     <LibrarianDashboard />
-          //   </AdminPrivateRouter>
-          // </PrivateRouter>
-          <PrivateRouter>
-            <LibrarianDashboard />
-          </PrivateRouter>
-        ),
+        element: <LibrarianRoute />,
         children: [
-          { path: "books", element: <MyBooks /> },
-          { path: "orders", element: <Orders /> },
-          { path: "add-books", element: <AddBook /> },
-          { path: "books/edit/:id", element: <EditBook /> },
-          { path: "chart", element: <LibrarianDashboardChart /> },
+          {
+            element: <LibrarianDashboard />, // 👈 layout
+            children: [
+              { index: true, element: <MyBooks /> },
+              { path: "books", element: <MyBooks /> },
+              { path: "orders", element: <Orders /> },
+              { path: "add-books", element: <AddBook /> },
+              { path: "books/edit/:id", element: <EditBook /> },
+              { path: "chart", element: <LibrarianDashboardChart /> },
+            ],
+          },
         ],
       },
 
@@ -190,27 +190,27 @@ export const router = createBrowserRouter([
         ],
       },
 
-      {
-        path: "admin",
-        element: <AdminDashboard />,
-        children: [
-          { path: "users", element: <AllUsers /> },
-          { path: "manage-book", element: <ManageBooks /> },
-          { path: "profile", element: <Profile /> },
-          { path: "chart", element: <AdminDashboardChart /> },
-        ],
-      },
       // {
       //   path: "admin",
-      //   element: <AdminPrivateRouter />, // <-- modal + authentication wrapper
+      //   element: <AdminDashboard />,
       //   children: [
-      //     { index: true, element: <AdminDashboard /> },
       //     { path: "users", element: <AllUsers /> },
       //     { path: "manage-book", element: <ManageBooks /> },
       //     { path: "profile", element: <Profile /> },
       //     { path: "chart", element: <AdminDashboardChart /> },
       //   ],
       // },
+      {
+        path: "admin",
+        element: <AdminRoute />,
+        children: [
+          { index: true, element: <AdminDashboard /> },
+          { path: "users", element: <AllUsers /> },
+          { path: "manage-book", element: <ManageBooks /> },
+          { path: "profile", element: <Profile /> },
+          { path: "chart", element: <AdminDashboardChart /> },
+        ],
+      },
     ],
   },
 ]);
